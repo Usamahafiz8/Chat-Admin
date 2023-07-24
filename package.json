@@ -9,7 +9,11 @@
     "@mui/icons-material": "^5.14.1",
     "@mui/material": "^5.14.1",
     "@mui/styled-engine-sc": "^5.12.0",
+<<<<<<< HEAD
     "@testing-library/jest-dom": "^5.16.5",
+=======
+    "@testing-library/jest-dom": "^5.17.0",
+>>>>>>> main
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
@@ -17,10 +21,17 @@
     "npm": "^9.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "socket.io-client": "^4.6.1",
     "styled-components": "^5.3.11",
+=======
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.11",
+    "typescript": "^4.9.5",
+>>>>>>> main
     "web-vitals": "^2.1.4"
   },
   "scripts": {
