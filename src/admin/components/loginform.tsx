@@ -67,10 +67,9 @@ export const AdminLoginForm = () => {
       const resData = res.data;
       if (resData.token) {
         localStorage.setItem("admin:token", resData.token);
-        const ID = resData.adminId
+        const ID = resData.adminId;
         console.log(ID);
         navigate(`/admin/dashboard/${ID}`);
-        
       }
     }
   };
@@ -115,7 +114,7 @@ export const AdminLoginForm = () => {
         <Button
           fullWidth
           variant="contained"
-          style={{ fontWeight: 600 }}
+          style={{ fontWeight: 600, height: "48px", fontSize: "16px" }}
           onClick={handleLogin}
         >
           Login
