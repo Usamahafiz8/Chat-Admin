@@ -1,20 +1,23 @@
-export const ApiConstrains = {
+  export const ApiConstrains = {
     admin: {
-      login: '/admin/login',
-      getUsers: '/admin/users',
-      createAdmin: '/admins',
-      getConversations: '/admin/conversations',
-      getMessages: '/admin/messages/:conversationId',
-      getMessageByUserId: '/admin/messages/user/:userId',
-      sendMessage: '/admin/send-message',
-      sendMessageToUser: '/admin/send-message-to-user',
+      login: "/admin/login", // POST
+      getUsers: "/admin/users", // GET
+      getConversations: (AdminID) => {
+        return `/admin/conversations/${AdminID}`; // GET
+      },
     },
     user: {
-      registerOrLogin: '/user/register-or-login',
-      startConversation: '/user/start-conversation',
-      getUserDetails: '/user/details',
-      getAvailableAdmins: '/user/available-admins',
-      getUserConversations: '/user/conversations/:adminId',
-      sendMessageToAdmin: '/user/send-message-to-admin',
+      registerOrLogin: "/user/register-or-login", //post
+      getadmin: "/user/admins", //get
+    },
+    StartConversation: "/user/start-conversation", //post
+
+    sendmassage: (conversationId) => {
+      return `/conversation/send-message/` + conversationId; //post
+    },
+    GetMassages: (conversationId) => {
+      return `/conversation/messages/` + conversationId; //get
     },
   };
+
+

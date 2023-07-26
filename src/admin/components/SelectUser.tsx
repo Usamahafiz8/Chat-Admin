@@ -31,7 +31,7 @@ export const SelectUser = ({ selectedUserId, onSelectUser }: SelectUserProps) =>
     const fetchUsers = async () => {
       const res = await Custon_Axios.get(ApiConstrains.admin.getUsers, {
         headers: {
-          "Content-Type": "application/json",
+          // "Content-Type": "application/json",
           Authorization: `${localStorage.getItem("admin:token")}`,
         },
       });

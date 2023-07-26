@@ -9,6 +9,7 @@ import Custom_Axios from "./../../components/API/index.jsx";
 import { ApiConstrains } from "./../../components/API/ApiConstrains.jsx";
 
 const ClientLogin = () => {
+  const [userId, setUserId] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -57,7 +58,12 @@ const ClientLogin = () => {
       const resData = res.data;
       if (resData.token) {
         localStorage.setItem("user:token", resData.token);
-        navigate("/user/Chat");
+        setUserId(resData.user._id)
+        const ID = resData.user._id
+        console.log(ID);
+        navigate(`/user/Chat/${ID}`);
+        
+        // navigate("/user/Chat");
       }
     }
   };

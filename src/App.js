@@ -44,7 +44,7 @@ function App() {
       {/* (user as a client) Route  */}
       <Route path="/user/login" element={<ClientLogin />} />
       <Route
-        path="/user/Chat"
+        path="/user/Chat/:userId"
         element={
           <ClientProtectedRoute auth={true}>
           <ClientChatInterface />
@@ -55,7 +55,7 @@ function App() {
       {/* Admin Routes */}
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route
-        path="/admin/dashboard"
+        path="/admin/dashboard/:AdminID"
         element={
           <AdminiProtectedRoute auth={true}>
             <AdminDashboard />

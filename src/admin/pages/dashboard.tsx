@@ -5,9 +5,13 @@ import { SelectUser } from "../components/SelectUser.tsx";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 // @ts-ignore
 import { UserChatInterface } from "../components/UserChatInterface.tsx";
+// @ts-ignore
+import { ConversationList } from "../components/ConversationList.tsx";
+import { useParams } from "react-router-dom";
 
 export const AdminDashboard = () => {
   const [inputValue, setInputValue] = useState("");
+  const { AdminID } = useParams<{ AdminID: string }>();
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -21,6 +25,12 @@ export const AdminDashboard = () => {
   const handleUserSelect = (userId: string) => {
     setSelectedUserId(userId);
   };
+  const [conversationId, setConversationId] = useState<string | null>(null);
+  const handleConversationSelection = (ID: string) => {
+    setConversationId(ID);
+  };
+
+
   return (
     <div style={{ padding: " 0 96px 0 96px", backgroundColor: "#F9FAFB" }}>
       <Grid container style={{ height: "100vh" }}>
@@ -61,11 +71,17 @@ export const AdminDashboard = () => {
               }
             />
           </div>
+          ------------
+          <ConversationList
+      ConversationSelection={handleConversationSelection} 
+    />
+          {/* ------------
           {selectedUserId}
           <SelectUser
             selectedUserId={selectedUserId}
             onSelectUser={handleUserSelect}
-          />
+          /> */}
+
         </Grid>
         <Grid
           item
@@ -78,8 +94,8 @@ export const AdminDashboard = () => {
           }}
         >
           {selectedUserId}
-
-          <UserChatInterface selectedUserId={selectedUserId} />
+conversationID : {conversationId}
+          <UserChatInterface conversationId={conversationId} />
         </Grid>
       </Grid>
     </div>

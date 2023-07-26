@@ -67,7 +67,10 @@ export const AdminLoginForm = () => {
       const resData = res.data;
       if (resData.token) {
         localStorage.setItem("admin:token", resData.token);
-        navigate("/admin/dashboard");
+        const ID = resData.adminId
+        console.log(ID);
+        navigate(`/admin/dashboard/${ID}`);
+        
       }
     }
   };
