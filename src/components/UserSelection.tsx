@@ -19,7 +19,7 @@ const UserSelection = () => {
         variant="contained"
         style={{ fontWeight: 600, fontSize: 18 }}
         onClick={() => {
-          navigate("/admin/dashboard");
+          navigate("/admin/login");
         }}
       >
         Proceed as Admin
@@ -30,7 +30,7 @@ const UserSelection = () => {
         variant="outlined"
         style={{ fontWeight: 600, fontSize: 18 }}
         onClick={() => {
-          navigate("/user/Chat");
+          navigate("/user/login");
         }}
       >
         Proceed as Client

@@ -44,7 +44,7 @@ function App() {
       {/* (user as a client) Route  */}
       <Route path="/user/login" element={<ClientLogin />} />
       <Route
-        path="/user/Chat/:userId"
+        path="/user/Chat/:conversationId"
         element={
           <ClientProtectedRoute auth={true}>
           <ClientChatInterface />

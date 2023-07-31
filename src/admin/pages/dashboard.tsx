@@ -29,7 +29,7 @@ export const AdminDashboard = () => {
   const handleConversationSelection = (ID: string) => {
     setConversationId(ID);
   };
-
+  const [conversationusername, setConversationUSername] = useState<string | null>(null);
 
   return (
     <div style={{ padding: " 0 96px 0 96px", backgroundColor: "#F9FAFB" }}>
@@ -71,17 +71,15 @@ export const AdminDashboard = () => {
               }
             />
           </div>
-          ------------
           <ConversationList
-      ConversationSelection={handleConversationSelection} 
-    />
+            ConversationSelection={handleConversationSelection}
+            setConversationUSername={setConversationUSername} conversationID={conversationId}          />
           {/* ------------
           {selectedUserId}
           <SelectUser
             selectedUserId={selectedUserId}
             onSelectUser={handleUserSelect}
           /> */}
-
         </Grid>
         <Grid
           item
@@ -94,8 +92,8 @@ export const AdminDashboard = () => {
           }}
         >
           {selectedUserId}
-conversationID : {conversationId}
-          <UserChatInterface conversationId={conversationId} />
+          {/* conversationID : {conversationId} */}
+          <UserChatInterface conversationId={conversationId} conversationusername={conversationusername}/>
         </Grid>
       </Grid>
     </div>

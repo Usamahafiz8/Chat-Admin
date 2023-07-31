@@ -1,23 +1,36 @@
-  export const ApiConstrains = {
-    admin: {
-      login: "/admin/login", // POST
-      getUsers: "/admin/users", // GET
-      getConversations: (AdminID) => {
-        return `/admin/conversations/${AdminID}`; // GET
-      },
+export const ApiConstrains = {
+  admin: {
+    login: "/admin/login", // POST
+    getUsers: "/admin/users", // GET
+    getConversations: (AdminID) => {
+      return `/admin/conversations/${AdminID}`; // GET
     },
-    user: {
-      registerOrLogin: "/user/register-or-login", //post
-      getadmin: "/user/admins", //get
+    sendMassage: (conversationId) => {
+      return `/admin/conversation/send-message/` + conversationId; //post
     },
-    StartConversation: "/user/start-conversation", //post
+  },
+  user: {
+    registerOrLogin: "/user/register-or-login", //post
+    getadmin: "/user/admins", //get
+  },
+  StartConversation: "/user/start-conversation", //post
 
-    sendmassage: (conversationId) => {
-      return `/conversation/send-message/` + conversationId; //post
+  sendmassage: (conversationId) => {
+    return `/user/conversation/send-message/` + conversationId; //post
+  },
+  GetMassages: (conversationId) => {
+    return `/conversations/messages/` + conversationId; //get
+  },
+  Users: {
+    startConversation: `/user/start-conversation`, //post
+    getMassages: (conversationId) => {
+      return `/conversations/messages/`+conversationId; //get
     },
-    GetMassages: (conversationId) => {
-      return `/conversation/messages/` + conversationId; //get
+    sendMassage: (conversationId) => {
+      return `/user/send-message/` + conversationId; //post
     },
-  };
+  },
+};
 
 
+// api/user/conversation/send-message/:conversationId

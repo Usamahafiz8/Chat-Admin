@@ -107,7 +107,7 @@ export const AdminLoginForm = () => {
           label="Password"
           variant="outlined"
           value={data.password}
-          onChange={(e) => setData({ ...data, password: e.target.value })}
+          onChange={(e) => setData({  ...data, password: e.target.value })}
           error={Boolean(errors.password)}
           helperText={errors.password}
         />

@@ -1,12 +1,14 @@
 import React from "react";
-import {
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
-const Header = () => {
+interface HeaderProps {
+  onRefreshClick?: () => void; // Define the function prop
+}
+
+const Header = ({ onRefreshClick }: HeaderProps) => {
   return (
     <div
       style={{
@@ -24,7 +26,10 @@ const Header = () => {
       <Typography
         style={{ fontWeight: 600, color: "#ffffff", fontSize: "16px" }}
       >
-        Chat with us
+        Chat with us{" "}
+        <IconButton onClick={onRefreshClick}>
+          <RefreshIcon style={{ color: "white" }} />
+        </IconButton>
       </Typography>
       <div>
         <IconButton style={{ color: "#ffffff" }}>

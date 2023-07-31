@@ -9,7 +9,7 @@ import Custom_Axios from "./../../components/API/index.jsx";
 import { ApiConstrains } from "./../../components/API/ApiConstrains.jsx";
 
 const ClientLogin = () => {
-  const [userId, setUserId] = useState<string | null>(null);
+
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -47,24 +47,26 @@ const ClientLogin = () => {
       return;
     }
 
-    const res = await Custom_Axios.post(ApiConstrains.user.registerOrLogin, {
+    const res = await Custom_Axios.post(ApiConstrains.Users.startConversation, {
       fullName: data.name,
       email: data.email,
+      role:'guest'
     });
 
     if (res.status === 400) {
       alert("Invalid credentials");
     } else {
       const resData = res.data;
-      if (resData.token) {
-        localStorage.setItem("user:token", resData.token);
-        setUserId(resData.user._id)
-        const ID = resData.user._id
-        console.log(ID);
-        navigate(`/user/Chat/${ID}`);
-        
-        // navigate("/user/Chat");
-      }
+      // console.log(resData);
+      console.log(resData.conversation._id);
+      // if (resData.token) {
+        // ... (existing code)
+        // setUserId(resData.user._id);
+
+        // setConversationId(resData.conversation._id); // Set the conversation _id here
+        navigate(`/user/Chat/${resData.conversation._id}`); // Navigate with the conversation _id
+      
+      // }  
     }
   };
 
